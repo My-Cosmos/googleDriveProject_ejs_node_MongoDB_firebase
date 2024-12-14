@@ -1,16 +1,19 @@
 const express = require('express');
 const app = express();
-const userRouter = require('./routes/user.routes');
+const authRouter = require('./routes/authRoutes/auth.routes');
 
+// Set the view engine to EJS
 app.set('view engine', 'ejs');
+// Set the 'views' directory (default is './views')
+app.set('views', './views'); // default is set only
+// load static files.
+app.use(express.static('public'));
+// ~ to read req.body in post routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-/**
- * ~ In production level application we doesn't make/Create any route in 'app.js' file.
- *   ~~ we only configure routes in 'app.js' file.
- *   ~~ and make/Create routes in respective './routes' folder using **express.Router()** method.
- *   ~~ and export the routes also using **express.Router()** method.
- */
-app.use('/user', userRouter);
+
+app.use('/auth-route', authRouter);
 
 
 app.listen(3000, ()=>{
