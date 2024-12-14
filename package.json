@@ -1,0 +1,28 @@
+{
+  "name": "googledriveproject_ejs_node_mongodb_firebase",
+  "version": "1.0.0",
+  "description": "google drive clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/My-Cosmos/googleDriveProject_ejs_node_MongoDB_firebase.git"
+  },
+  "keywords": [
+    "zico_madeThis"
+  ],
+  "author": "Sangramjit Roy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/My-Cosmos/googleDriveProject_ejs_node_MongoDB_firebase/issues"
+  },
+  "homepage": "https://github.com/My-Cosmos/googleDriveProject_ejs_node_MongoDB_firebase#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0"
+  }
+}
