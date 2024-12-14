@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const userModel = require("../../models/user.model");
+const bcrypt = require('bcrypt');
 
 router.get("/register", (req, res) => {
   res.render("authPages/register");
@@ -27,14 +28,21 @@ router.post(
     // ~ creating user to MongoDBAtlas database
     const { username, email, password } = req.body;
 
+    // ~ Hashing the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = await userModel.create({
       username: username,
       email: email,
-      password: password,
+      password: hashedPassword,
     });
 
     res.json(newUser);
   }
 );
+
+router.get("/login", (req, res)=>{
+  res.render('authPages/login');
+})
 
 module.exports = router;
