@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
+const userModel = require("../../models/user.model");
 
 router.get("/register", (req, res) => {
   res.render("authPages/register");
@@ -11,7 +12,7 @@ router.post(
   body("email").trim().isEmail(),
   body("password").trim().isLength({ min: 1 }),
   body("username").trim().isLength({ min: 1 }),
-  (req, res) => {
+  async (req, res) => {
     console.log(req.body);
     // ~ express-validator npm package method this is
     const errors = validationResult(req);
@@ -23,7 +24,16 @@ router.post(
       });
     }
 
-    res.send("User successfully registered");
+    // ~ creating user to MongoDBAtlas database
+    const { username, email, password } = req.body;
+
+    const newUser = await userModel.create({
+      username: username,
+      email: email,
+      password: password,
+    });
+
+    res.json(newUser);
   }
 );
 
