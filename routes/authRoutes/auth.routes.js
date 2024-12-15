@@ -3,6 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const userModel = require("../../models/user.model");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 router.get("/register", (req, res) => {
   res.render("authPages/register");
@@ -50,7 +51,7 @@ router.post(
   body("email").trim().isEmail(),
   body("password").trim().isLength({ min: 1 }),
   async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
@@ -80,6 +81,20 @@ router.post(
         message: "Stay Away",
       });
     }
+
+    /* ~ Generate JWT **token** */
+    const token = jwt.sign(
+      {
+        userId: find_the_user_in_mongoDB._id,
+        email: find_the_user_in_mongoDB.email,
+        username: find_the_user_in_mongoDB.username,
+      },
+      process.env.JWT_SECRET
+    );
+
+    // ~ for setting the cookie in chromeBrowser>application_tab>cookies
+    res.cookie('set_cookie_SangramjitRoy_token', token);
+
     res.send("User Exists");
   }
 );

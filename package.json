@@ -22,6 +22,7 @@
   "homepage": "https://github.com/My-Cosmos/googleDriveProject_ejs_node_MongoDB_firebase#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",

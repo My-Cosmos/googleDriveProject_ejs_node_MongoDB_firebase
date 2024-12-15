@@ -3,6 +3,9 @@ const app = express();
 const authRouter = require("./routes/authRoutes/auth.routes");
 const homeRouter = require("./routes/homeRoute/home.routes");
 const dotenv = require("dotenv");
+// ~ for saving the JWT_token using cookies(cookie-parser)
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 // Set the view engine to EJS
 app.set("view engine", "ejs");
