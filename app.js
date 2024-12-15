@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const authRouter = require("./routes/authRoutes/auth.routes");
+const homeRouter = require("./routes/homeRoute/home.routes");
 const dotenv = require("dotenv");
 
 // Set the view engine to EJS
@@ -19,6 +20,7 @@ const connectDB = require("./config/db");
 connectDB();
 
 app.use("/auth-route", authRouter);
+app.use("/", homeRouter);
 
 app.listen(3000, () => {
   console.log(`Server is running on port 3000`);

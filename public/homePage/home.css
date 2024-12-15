@@ -1,0 +1,228 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a202c; /* Dark background */
+  color: #e2e8f0; /* Light text */
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  z-index: 10; /* Ensure buttons and title are above images */
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #cbd5e0; /* Muted light gray */
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3182ce; /* Blue button */
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+/* Scattered Image Boxes */
+.image-box {
+  width: 120px; /* Larger size */
+  height: 120px;
+  border-radius: 50%; /* Circular shape */
+  overflow: hidden;
+  position: absolute; /* Positioning images around the page */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: float 12s infinite ease-in-out; /* Base animation for movement */
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image scales nicely */
+}
+
+/* Positioning of Image Boxes */
+.top-left {
+  top: 20px;
+  left: 20px;
+  animation: move1 8s infinite ease-in-out;
+}
+
+.top-center {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: move2 12s infinite ease-in-out;
+}
+
+.top-right {
+  top: 20px;
+  right: 20px;
+  animation: move3 10s infinite ease-in-out;
+}
+
+.center-left {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  animation: move4 15s infinite ease-in-out;
+}
+
+.center-right {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  animation: move5 9s infinite ease-in-out;
+}
+
+.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  animation: move6 11s infinite ease-in-out;
+}
+
+.bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: move7 13s infinite ease-in-out;
+}
+
+.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  animation: move8 14s infinite ease-in-out;
+}
+
+/* Keyframes for Animations */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -30px); /* Wider movements */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, 40px); /* Increased movement range */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(60px); /* Wider vertical movement */
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes move3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-50px, -30px); /* Wider diagonal movement */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move4 {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(60px); /* Larger horizontal movement */
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes move5 {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(-60px);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes move6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, -50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes move7 {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-40px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes move8 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-40px, 50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
