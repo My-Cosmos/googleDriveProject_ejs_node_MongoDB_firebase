@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="container">
+      <!-- back button code -->
       <div class="back-btn">
         <a href="/" class="back-link">
           <svg
@@ -29,14 +30,19 @@
       <div class="form-wrapper">
         <h1>Upload Your File</h1>
         <form
-          action="/upload-file"
+          action="/upload"
           method="POST"
           enctype="multipart/form-data"
           id="upload-form"
         >
           <div class="drag-drop-area" id="drag-drop-area">
             <p>Drag & drop your file here, or click to browse</p>
-            <input type="file" name="file" id="file-upload" hidden />
+            <input
+              type="file"
+              name="Sangramjit_Roy_Sample_File"
+              id="file-upload"
+              hidden
+            />
           </div>
           <button type="submit" class="btn">Upload</button>
         </form>
