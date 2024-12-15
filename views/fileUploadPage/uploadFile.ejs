@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop File Upload</title>
+    <link rel="stylesheet" href="/fileUploadPage/uploadFile.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="back-btn">
+        <a href="/" class="back-link">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </a>
+      </div>
+      <div class="form-wrapper">
+        <h1>Upload Your File</h1>
+        <form
+          action="/upload-file"
+          method="POST"
+          enctype="multipart/form-data"
+          id="upload-form"
+        >
+          <div class="drag-drop-area" id="drag-drop-area">
+            <p>Drag & drop your file here, or click to browse</p>
+            <input type="file" name="file" id="file-upload" hidden />
+          </div>
+          <button type="submit" class="btn">Upload</button>
+        </form>
+      </div>
+    </div>
+    <script src="/fileUploadPage/uploadFile.js"></script>
+  </body>
+</html>
